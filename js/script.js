@@ -2,17 +2,23 @@ const input = document.querySelector('input');
 const downloadButton = document.querySelector('button');
 
 downloadButton.addEventListener('click', () => {
-        if(input.value){
-            downloadFile(input.value);
-        }else{
-            alert('Please enter a valid URL');
-        }
+    if(checkFile(input.value !== '')){
+        downloadFile(input.value);
+    }else{
+        alert('Please enter a link');
+    }
 });
 
 
 //download file
 function downloadFile(url){
-    fetch(url).then(res => res.blob())
+    fetch(url).then(res => {
+        if(res.ok){
+            res.blob()
+        }else{
+            alert('file does not exist');
+        }
+    })
     .then(blob => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
