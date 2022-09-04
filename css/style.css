@@ -60,3 +60,7 @@ header p {
     flex-direction: column;
     padding: 0 20px;
 }
+
+.inputs button{
+    text-transform: uppercase;
+}
