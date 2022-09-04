@@ -2,7 +2,9 @@ const input = document.querySelector('input');
 const downloadButton = document.querySelector('button');
 
 downloadButton.addEventListener('click', () => {
-    downloadFile(input.value);
+    if(checkFile(input.value)){
+        downloadFile(input.value);
+    }
 });
 
 
@@ -18,5 +20,19 @@ function downloadFile(url){
         document.body.appendChild(a);
         a.click();
         window.URL.revokeObjectURL(url);
+    })
+}
+
+//check if file exists
+function checkFile(url){
+    var isvalid = false;
+    fetch(url).then(res => {
+        if(res.ok && url != ''){
+            alert('File exists');
+            isvalid = true;
+        }else{
+            alert('file does not exist');
+            isvalid = false;
+        }
     })
 }
