@@ -6,3 +6,39 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container{
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container header{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+header h1{
+    font-size: 40px;
+    font-weight: 900;
+}
+
+header p{
+    font-size: 20px;
+    font-weight: 300;
+    text-align: justify;
+    margin-top: 10px;
+}
